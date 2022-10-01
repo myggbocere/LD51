@@ -9,12 +9,24 @@
 config_version=5
 
 _global_script_classes=[{
+"base": "Node2D",
+"class": &"DevLevelTemplate",
+"language": &"GDScript",
+"path": "res://devstuff/dev_level/dev_LevelTemplate.gd"
+}, {
+"base": "Node2D",
+"class": &"DevMapTemplate",
+"language": &"GDScript",
+"path": "res://devstuff/dev_level/dev_MapTemplate.gd"
+}, {
 "base": "CharacterBody2D",
 "class": &"Entity",
 "language": &"GDScript",
 "path": "res://Scripts/entity.gd"
 }]
 _global_script_class_icons={
+"DevLevelTemplate": "",
+"DevMapTemplate": "",
 "Entity": ""
 }
 
