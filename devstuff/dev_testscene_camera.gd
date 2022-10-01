@@ -11,7 +11,7 @@ func _process(delta):
 	pass
 
 func _input(event):
-	if event.is_action_pressed("level_zoom_in") and (zoom*ZOOM_INCREMENT_VEC).x < 6: #use x because they'll always be the same and easier than comparing vectors
+	if event.is_action_pressed("level_zoom_in") and (zoom*ZOOM_INCREMENT_VEC).x < 20: #use x because they'll always be the same and easier than comparing vectors
 		zoom *= ZOOM_INCREMENT_VEC
 		print(zoom)
 	elif event.is_action_pressed("level_zoom_out") and (zoom/ZOOM_INCREMENT_VEC).x > 1.2:
