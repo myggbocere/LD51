@@ -1,14 +1,14 @@
 class_name Entity
 
 extends CharacterBody2D
-#var entityScene = load("res://Scenes/entity.tscn")
+var entityScene = load("res://Scenes/entity.tscn")
 var health
-var friction = .6
-var accel = {"up":Vector2(0,-10), 
-"down":Vector2(0,10), 
-"left":Vector2(-10,0),
-"right":Vector2(10,0)}
+const friction = 7
+const ACCEL_RATE = 200
 
+func apply_accel(direction:Vector2):
+	direction = direction.normalized()
+	velocity += direction * ACCEL_RATE
 func _init():
 	health = 100
 # Called when the node enters the scene tree for the first time.
@@ -19,18 +19,18 @@ func _ready():
 #		self.add_child(entit)
 	pass # Replace with function body.
 func _input(event):
-	print(event.as_text())
-	for direction in accel:
-		if velocity.length() > 500:
-			break
-		if event.is_action(direction):
-			velocity += accel[direction]
+	var direction:Vector2 = Vector2(0,0)
+	direction.x = Input.get_axis("left", "right")
+	direction.y = Input.get_axis("up", "down")
+	apply_accel(direction)
+	
 func apply_friction(delta):
-	velocity *= friction * delta
+	velocity *= 1.0 - (friction * delta)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if velocity.length() > 0:
 		move_and_slide()
 		apply_friction(delta)
+
 		
 		

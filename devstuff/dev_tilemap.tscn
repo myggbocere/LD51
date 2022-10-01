@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://ciyb2npkyvb5q"]
+[gd_scene load_steps=5 format=3 uid="uid://ciyb2npkyvb5q"]
 
 [ext_resource type="Texture2D" uid="uid://baba87h40g2wg" path="res://tilesets/dev_dungeon_16x16_tileset Xevin itch.png" id="1_nai8w"]
+[ext_resource type="PackedScene" uid="uid://du6pm6skr6o8t" path="res://Scenes/entity.tscn" id="2_bwgfi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b6mqw"]
 texture = ExtResource("1_nai8w")
@@ -592,3 +593,6 @@ layer_1/y_sort_enabled = false
 layer_1/y_sort_origin = 0
 layer_1/z_index = 0
 layer_1/tile_data = PackedInt32Array(786444, 65536, 2, 786445, 65536, 2, 786446, 65536, 2, 786447, 65536, 2, 786448, 655360, 2, 786449, 65536, 2, 786450, 720896, 2, 786451, 589824, 2, 786443, 65536, 2, 786442, 524288, 2, 851986, 393216, 2, 720912, 196608, 2, 655376, 196608, 2, 589840, 131072, 2, 589839, 524288, 2, 524291, 196608, 2, 458755, 458752, 2, 589827, 196608, 2, 655363, 196608, 2, 720899, 262144, 2, 720900, 131072, 2, 786436, 262144, 2, 786437, 131072, 2, 851973, 262144, 2, 851974, 65536, 2, 851975, 131072, 2, 917511, 393216, 2, 983055, 196608, 2, 917519, 458752, 2, 983057, 0, 2, 983058, 589824, 2, 1048591, 196608, 2, 1114127, 393216, 2, 1048593, 393216, 2)
+
+[node name="Entity" parent="." instance=ExtResource("2_bwgfi")]
+z_index = 3
