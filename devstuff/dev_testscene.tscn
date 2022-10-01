@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://ruia3koemxnm"]
+
+[ext_resource type="Script" path="res://devstuff/dev_testscene_camera.gd" id="1_t31af"]
+[ext_resource type="PackedScene" uid="uid://ciyb2npkyvb5q" path="res://dev_tilemap.tscn" id="2_7iu3o"]
+
+[node name="dev_testscene" type="Node2D"]
+
+[node name="dev_testscene_camera" type="Camera2D" parent="."]
+position = Vector2(288, 162)
+ignore_rotation = false
+current = true
+zoom = Vector2(2, 2)
+script = ExtResource("1_t31af")
+
+[node name="dev_tilemap" parent="." instance=ExtResource("2_7iu3o")]
