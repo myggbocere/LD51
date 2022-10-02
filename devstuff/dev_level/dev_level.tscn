@@ -4,7 +4,11 @@
 [ext_resource type="PackedScene" uid="uid://cad2t4kakrnni" path="res://devstuff/dev_level/dev_1.tscn" id="2_7gktf"]
 [ext_resource type="PackedScene" uid="uid://dbu32eb7w1lov" path="res://devstuff/dev_level/dev_2.tscn" id="3_gp2oq"]
 
-[node name="dev_level" instance=ExtResource("1_x40o3")]
+[node name="dev_level_alt" instance=ExtResource("1_x40o3")]
+metadata/_edit_vertical_guides_ = []
+
+[node name="BoxContainer" parent="." index="0"]
+offset_right = 896.0
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="BoxContainer" index="0"]
 layout_mode = 2
@@ -105,19 +109,16 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="Camera2d" parent="BoxContainer/SubViewportContainer2/SubViewport/dev_2" index="2"]
-zoom = Vector2(0.66, 0.66)
+zoom = Vector2(0.666, 0.666)
 
 [node name="Timer" parent="BoxContainer/SubViewportContainer2/SubViewport/dev_2" index="4"]
 autostart = false
 
-[node name="MarginContainer" parent="PanelContainer" index="0"]
-layout_mode = 2
-
-[node name="Label" parent="PanelContainer/MarginContainer" index="0"]
-layout_mode = 2
-
-[node name="TextureRect" parent="PanelContainer" index="1"]
-layout_mode = 2
+[node name="VBoxContainer" type="VBoxContainer" parent="." index="2"]
+offset_left = 896.0
+offset_top = 32.0
+offset_right = 1152.0
+offset_bottom = 648.0
 
 [editable path="BoxContainer/SubViewportContainer/SubViewport/dev_1"]
 [editable path="BoxContainer/SubViewportContainer2/SubViewport/dev_2"]

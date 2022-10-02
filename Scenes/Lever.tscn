@@ -1,0 +1,39 @@
+[gd_scene load_steps=8 format=3 uid="uid://dqgx8u1fq2cl1"]
+
+[ext_resource type="Script" path="res://Scripts/Lever.gd" id="1_domxr"]
+[ext_resource type="Texture2D" uid="uid://baba87h40g2wg" path="res://tilesets/dev_dungeon_16x16_tileset Xevin itch.png" id="2_v5fjd"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pvuf5"]
+radius = 16.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_go3iu"]
+atlas = ExtResource("2_v5fjd")
+region = Rect2(0, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_562pg"]
+atlas = ExtResource("2_v5fjd")
+region = Rect2(16, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_blyda"]
+atlas = ExtResource("2_v5fjd")
+region = Rect2(32, 80, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oqrbm"]
+animations = [{
+"frames": [SubResource("AtlasTexture_go3iu"), SubResource("AtlasTexture_562pg"), SubResource("AtlasTexture_blyda")],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Lever" type="Node2D"]
+script = ExtResource("1_domxr")
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("CircleShape2D_pvuf5")
+
+[node name="AnimatedSprite2d" type="AnimatedSprite2D" parent="."]
+z_index = 2
+frames = SubResource("SpriteFrames_oqrbm")
