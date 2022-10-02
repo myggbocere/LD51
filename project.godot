@@ -23,11 +23,23 @@ _global_script_classes=[{
 "class": &"Entity",
 "language": &"GDScript",
 "path": "res://Scripts/entity.gd"
+}, {
+"base": "LogicNode",
+"class": &"Lever",
+"language": &"GDScript",
+"path": "res://Scripts/Lever.gd"
+}, {
+"base": "Node2D",
+"class": &"LogicNode",
+"language": &"GDScript",
+"path": "res://Scripts/LogicNode.gd"
 }]
 _global_script_class_icons={
 "DevLevelTemplate": "",
 "DevMapTemplate": "",
-"Entity": ""
+"Entity": "",
+"Lever": "",
+"LogicNode": ""
 }
 
 [application]

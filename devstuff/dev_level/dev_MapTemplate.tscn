@@ -53,7 +53,9 @@ offset_right = 540.0
 offset_left = 544.0
 offset_right = 608.0
 
-[node name="TileMap" type="TileMap" parent="."]
+[node name="LogicContainer" type="Node2D" parent="."]
+
+[node name="TileMap" type="TileMap" parent="LogicContainer"]
 tile_set = ExtResource("1_cwlpy")
 format = 2
 layer_0/name = "floor"
