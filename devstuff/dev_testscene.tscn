@@ -1,21 +1,23 @@
-[gd_scene load_steps=5 format=3 uid="uid://s583266evjcx"]
+[gd_scene load_steps=6 format=3 uid="uid://s583266evjcx"]
 
+[ext_resource type="Script" path="res://devstuff/dev_testscene.gd" id="1_npdkv"]
 [ext_resource type="Script" path="res://devstuff/dev_testscene_camera.gd" id="1_t31af"]
-[ext_resource type="PackedScene" uid="uid://b2q1ngiuri2op" path="res://devstuff/testcharbody2d.tscn" id="3_0g1kf"]
+[ext_resource type="PackedScene" uid="uid://b0vgpyn7kafrf" path="res://Scenes/Player.tscn" id="3_k3hk5"]
 [ext_resource type="PackedScene" uid="uid://bjdakidcikvww" path="res://devstuff/dev_tilemap.tscn" id="3_qy62m"]
 [ext_resource type="PackedScene" uid="uid://du6pm6skr6o8t" path="res://Scenes/entity.tscn" id="4_q3hxw"]
 
 [node name="dev_testscene" type="Node2D"]
 texture_filter = 1
-
-[node name="CharacterBody2d" parent="." instance=ExtResource("3_0g1kf")]
-visible = false
+script = ExtResource("1_npdkv")
 
 [node name="dev_tilemap" parent="." instance=ExtResource("3_qy62m")]
 
 [node name="Entity" parent="." instance=ExtResource("4_q3hxw")]
+visible = false
 
-[node name="dev_testscene_camera" type="Camera2D" parent="Entity"]
+[node name="Player" parent="." instance=ExtResource("3_k3hk5")]
+
+[node name="dev_testscene_camera" type="Camera2D" parent="Player"]
 scale = Vector2(16, 16)
 ignore_rotation = false
 current = true

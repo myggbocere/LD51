@@ -1,3 +1,10 @@
-[gd_scene format=3 uid="uid://b0vgpyn7kafrf"]
+[gd_scene load_steps=3 format=3 uid="uid://b0vgpyn7kafrf"]
 
-[node name="Player" type="Node2D"]
+[ext_resource type="PackedScene" uid="uid://du6pm6skr6o8t" path="res://Scenes/entity.tscn" id="1_164n0"]
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="2_mhv6q"]
+
+[node name="Player" instance=ExtResource("1_164n0")]
+script = ExtResource("2_mhv6q")
+
+[node name="AnimatedSprite2d" parent="." index="1"]
+scale = Vector2(2, 2)

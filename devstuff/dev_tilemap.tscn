@@ -1,8 +1,8 @@
 [gd_scene load_steps=2 format=3 uid="uid://bjdakidcikvww"]
 
-[ext_resource type="TileSet" uid="uid://cye4qkqayod58" path="res://tilesets/dev_tilemap.tres" id="1_gml08"]
+[ext_resource type="TileSet" uid="uid://dssa6wpxm03lr" path="res://tilesets/dev_tilemap.tres" id="1_gml08"]
 
-[node name="dev_tilemap" type="TileMap"]
+[node name="dev_tilemap2" type="TileMap"]
 tile_set = ExtResource("1_gml08")
 format = 2
 layer_0/name = "floor"
