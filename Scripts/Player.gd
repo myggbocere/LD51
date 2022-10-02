@@ -3,6 +3,7 @@ var clicked:bool = false
 var mouse_direction:Vector2 = Vector2(0,0)
 var attack_timer = Timer.new()
 signal shoot()
+signal interact()
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	attack_timer.connect("timeout", attack)
@@ -22,6 +23,9 @@ func _input(event):
 		attack_timer.start()
 	elif event.is_action_released("press"):
 		attack_timer.stop()
+	
+	if event.is_action_pressed("interact"):
+		emit_signal("interact")
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	super._process(delta)
