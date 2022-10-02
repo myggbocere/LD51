@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cd0crqwxdi0ns"]
+[gd_scene load_steps=6 format=3 uid="uid://cd0crqwxdi0ns"]
 
 [ext_resource type="TileSet" uid="uid://cye4qkqayod58" path="res://tilesets/dev_tilemap.tres" id="1_cwlpy"]
 [ext_resource type="Script" path="res://devstuff/dev_level/dev_MapTemplate.gd" id="1_hto83"]
+[ext_resource type="Script" path="res://Scripts/LogicContainer.gd" id="3_0bnhm"]
 [ext_resource type="PackedScene" uid="uid://yjghblwlrnx5" path="res://devstuff/dev_level/dev_counter.tscn" id="4_4kgwt"]
 [ext_resource type="PackedScene" uid="uid://b0vgpyn7kafrf" path="res://Scenes/Player.tscn" id="4_ixp22"]
 
@@ -19,50 +20,42 @@ offset_bottom = 16.0
 alignment = 1
 
 [node name="dev_counter" parent="for_zorder/HSplitContainer" instance=ExtResource("4_4kgwt")]
-layout_mode = 2
 offset_right = 64.0
 
 [node name="dev_counter2" parent="for_zorder/HSplitContainer" instance=ExtResource("4_4kgwt")]
-layout_mode = 2
 offset_left = 68.0
 offset_right = 132.0
 
 [node name="dev_counter3" parent="for_zorder/HSplitContainer" instance=ExtResource("4_4kgwt")]
-layout_mode = 2
 offset_left = 136.0
 offset_right = 200.0
 
 [node name="dev_counter4" parent="for_zorder/HSplitContainer" instance=ExtResource("4_4kgwt")]
-layout_mode = 2
 offset_left = 204.0
 offset_right = 268.0
 
 [node name="dev_counter5" parent="for_zorder/HSplitContainer" instance=ExtResource("4_4kgwt")]
-layout_mode = 2
 offset_left = 272.0
 offset_right = 336.0
 
 [node name="dev_counter6" parent="for_zorder/HSplitContainer" instance=ExtResource("4_4kgwt")]
-layout_mode = 2
 offset_left = 340.0
 offset_right = 404.0
 
 [node name="dev_counter7" parent="for_zorder/HSplitContainer" instance=ExtResource("4_4kgwt")]
-layout_mode = 2
 offset_left = 408.0
 offset_right = 472.0
 
 [node name="dev_counter8" parent="for_zorder/HSplitContainer" instance=ExtResource("4_4kgwt")]
-layout_mode = 2
 offset_left = 476.0
 offset_right = 540.0
 
 [node name="dev_counter9" parent="for_zorder/HSplitContainer" instance=ExtResource("4_4kgwt")]
-layout_mode = 2
 offset_left = 544.0
 offset_right = 608.0
 
 [node name="LogicContainer" type="Node2D" parent="."]
+script = ExtResource("3_0bnhm")
 
 [node name="TileMap" type="TileMap" parent="LogicContainer"]
 tile_set = ExtResource("1_cwlpy")
@@ -75,6 +68,13 @@ layer_1/y_sort_enabled = false
 layer_1/y_sort_origin = 0
 layer_1/z_index = 0
 layer_1/tile_data = PackedInt32Array()
+layer_2/name = "logic"
+layer_2/enabled = true
+layer_2/modulate = Color(1, 1, 1, 1)
+layer_2/y_sort_enabled = false
+layer_2/y_sort_origin = 0
+layer_2/z_index = 0
+layer_2/tile_data = PackedInt32Array()
 
 [node name="Camera2d" type="Camera2D" parent="."]
 offset = Vector2(288, 162)

@@ -35,5 +35,5 @@ func toggle_switch():
 		switch_off()
 	pass
 
-func toggle():
+func toggle(_level:int):
 	toggle_switch()

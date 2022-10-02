@@ -38,9 +38,12 @@ func _ready():
 	pass # Replace with function body.
 
 func toggle_logic(level):
-	for logic_level in logic_nodes:
-		for lnode in logic_level:
-			lnode.toggle()
+	for svpcontainer in $BoxContainer.get_children():
+		var lc = svpcontainer.get_child(0).get_child(0).get_node("LogicContainer")
+		lc.toggle(level)
+	for svpcontainer in $VBoxContainer.get_children():
+		var lc = svpcontainer.get_child(0).get_child(0).get_node("LogicContainer")
+		lc.toggle(level)
 	pass
 
 func map_time_up(idx):
@@ -61,8 +64,11 @@ func activate_map(idx):
 		maps[idx].activate()
 
 func toggle(logic_layer):
-	for logic_node in logic_nodes[logic_layer]:
-		logic_node.toggle()
+	for svpcontainer in $BoxContainer.get_children():
+		var lc = svpcontainer.get_child(0).get_child(0).get_node("LogicContainer")
+		lc.toggle(logic_layer)
+#	for logic_node in logic_nodes[logic_layer]:
+#		logic_node.toggle()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

@@ -10,5 +10,5 @@ func _ready():
 func _process(delta):
 	pass
 
-func toggle():
+func toggle(_level:int):
 	pass
