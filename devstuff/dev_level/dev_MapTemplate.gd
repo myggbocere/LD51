@@ -49,7 +49,6 @@ func lever_area_exited(body, lever):
 	pass
 
 func scale_levers():
-	print(levers_in_range)
 	if closest_lever != null:
 		closest_lever.get_node("AnimatedSprite2d").scale = Vector2(1,1)
 	closest_lever = null
