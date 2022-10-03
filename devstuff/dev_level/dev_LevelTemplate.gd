@@ -14,9 +14,12 @@ func _ready():
 	for i in range(16): #I presume 16 logic levels will be more than enough
 		logic_nodes.append([])
 		levers.append([])
+	var j = 0
 	for svpcontainer in $BoxContainer.get_children():
 		var m = svpcontainer.get_child(0).get_child(0)
 		m.process_mode = Node.PROCESS_MODE_DISABLED
+		m.get_node("LogicContainer/TileMap").material = ShaderMaterial.new()
+		m.get_node("LogicContainer/TileMap").material.shader = load("res://Shaders/" + str(j) + "Tile.gdshader")
 		maps.append(m)
 		m.connect("time_up", map_time_up.bind(maps.size()-1))
 		m.toggle_logic.connect(toggle_logic)
@@ -29,20 +32,21 @@ func _ready():
 					logic_nodes[i].append(logic_node)
 					if logic_node.has_method("toggle_switch"):
 						levers[i].append(logic_node)
-	for svpcontainer in $VBoxContainer.get_children():
-		var m = svpcontainer.get_child(0).get_child(0)
-		m.process_mode = Node.PROCESS_MODE_DISABLED
-		maps.append(m)
-		m.connect("time_up", map_time_up.bind(maps.size()-1))
-		m.get_node("Player").use_power.connect(use_power)
-		m.get_node("Player").stop_use.connect(stop_power)
-		m.get_node("Player").change_power.connect(change_power)
-		for logic_node in m.get_node("LogicContainer").get_children():
-			if "logic_levels" in logic_node:
-				for i in logic_node.logic_levels:
-					logic_nodes[i].append(logic_node)
-					if logic_node.has_method("toggle_switch"):
-						levers[i].append(logic_node)
+		j += 1
+#	for svpcontainer in $VBoxContainer.get_children():
+#		var m = svpcontainer.get_child(0).get_child(0)
+#		m.process_mode = Node.PROCESS_MODE_DISABLED
+#		maps.append(m)
+#		m.connect("time_up", map_time_up.bind(maps.size()-1))
+#		m.get_node("Player").use_power.connect(use_power)
+#		m.get_node("Player").stop_use.connect(stop_power)
+#		m.get_node("Player").change_power.connect(change_power)
+#		for logic_node in m.get_node("LogicContainer").get_children():
+#			if "logic_levels" in logic_node:
+#				for i in logic_node.logic_levels:
+#					logic_nodes[i].append(logic_node)
+#					if logic_node.has_method("toggle_switch"):
+#						levers[i].append(logic_node)
 	activate_map(0)
 	pass # Replace with function body.
 func stop_power():
@@ -101,9 +105,6 @@ func change_power(power):
 
 func toggle_logic(level):
 	for svpcontainer in $BoxContainer.get_children():
-		var lc = svpcontainer.get_child(0).get_child(0).get_node("LogicContainer")
-		lc.toggle(level)
-	for svpcontainer in $VBoxContainer.get_children():
 		var lc = svpcontainer.get_child(0).get_child(0).get_node("LogicContainer")
 		lc.toggle(level)
 	pass

@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://cd0crqwxdi0ns"]
 
-[ext_resource type="TileSet" uid="uid://cye4qkqayod58" path="res://tilesets/dev_tilemap.tres" id="1_cwlpy"]
 [ext_resource type="Script" path="res://devstuff/dev_level/dev_MapTemplate.gd" id="1_hto83"]
 [ext_resource type="Script" path="res://Scripts/LogicContainer.gd" id="3_0bnhm"]
 [ext_resource type="PackedScene" uid="uid://yjghblwlrnx5" path="res://devstuff/dev_level/dev_counter.tscn" id="4_4kgwt"]
 [ext_resource type="PackedScene" uid="uid://b0vgpyn7kafrf" path="res://Scenes/Player.tscn" id="4_ixp22"]
+[ext_resource type="TileSet" uid="uid://c2g5hu2usdt3t" path="res://tilesets/mapart.tres" id="4_oi56r"]
 
 [node name="dev_MapTemplate" type="Node2D"]
 script = ExtResource("1_hto83")
@@ -20,37 +20,46 @@ offset_bottom = 16.0
 alignment = 1
 
 [node name="dev_counter" parent="for_zorder/HSplitContainer" instance=ExtResource("4_4kgwt")]
+layout_mode = 2
 offset_right = 64.0
 
 [node name="dev_counter2" parent="for_zorder/HSplitContainer" instance=ExtResource("4_4kgwt")]
+layout_mode = 2
 offset_left = 68.0
 offset_right = 132.0
 
 [node name="dev_counter3" parent="for_zorder/HSplitContainer" instance=ExtResource("4_4kgwt")]
+layout_mode = 2
 offset_left = 136.0
 offset_right = 200.0
 
 [node name="dev_counter4" parent="for_zorder/HSplitContainer" instance=ExtResource("4_4kgwt")]
+layout_mode = 2
 offset_left = 204.0
 offset_right = 268.0
 
 [node name="dev_counter5" parent="for_zorder/HSplitContainer" instance=ExtResource("4_4kgwt")]
+layout_mode = 2
 offset_left = 272.0
 offset_right = 336.0
 
 [node name="dev_counter6" parent="for_zorder/HSplitContainer" instance=ExtResource("4_4kgwt")]
+layout_mode = 2
 offset_left = 340.0
 offset_right = 404.0
 
 [node name="dev_counter7" parent="for_zorder/HSplitContainer" instance=ExtResource("4_4kgwt")]
+layout_mode = 2
 offset_left = 408.0
 offset_right = 472.0
 
 [node name="dev_counter8" parent="for_zorder/HSplitContainer" instance=ExtResource("4_4kgwt")]
+layout_mode = 2
 offset_left = 476.0
 offset_right = 540.0
 
 [node name="dev_counter9" parent="for_zorder/HSplitContainer" instance=ExtResource("4_4kgwt")]
+layout_mode = 2
 offset_left = 544.0
 offset_right = 608.0
 
@@ -58,7 +67,7 @@ offset_right = 608.0
 script = ExtResource("3_0bnhm")
 
 [node name="TileMap" type="TileMap" parent="LogicContainer"]
-tile_set = ExtResource("1_cwlpy")
+tile_set = ExtResource("4_oi56r")
 format = 2
 layer_0/name = "floor"
 layer_1/name = "wall"
@@ -79,12 +88,13 @@ layer_2/tile_data = PackedInt32Array()
 [node name="Camera2d" type="Camera2D" parent="."]
 offset = Vector2(288, 162)
 current = true
-zoom = Vector2(2, 2)
+zoom = Vector2(0.666, 0.666)
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
 
 [node name="Player" parent="." instance=ExtResource("4_ixp22")]
+scale = Vector2(0.25, 0.25)
 
 [node name="EntityContainer" type="Node2D" parent="."]
 

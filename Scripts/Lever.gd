@@ -23,7 +23,7 @@ func switch_off():
 	pass
 	
 func switch_on():
-	$AnimatedSprite2d.frame = 2
+	$AnimatedSprite2d.frame = 1
 	emit_signal("switched_on")
 	emit_signal("switched")
 	pass

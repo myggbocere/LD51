@@ -1,26 +1,19 @@
 [gd_scene load_steps=8 format=3 uid="uid://dqgx8u1fq2cl1"]
 
 [ext_resource type="Script" path="res://Scripts/Lever.gd" id="1_domxr"]
-[ext_resource type="Texture2D" uid="uid://baba87h40g2wg" path="res://tilesets/dev_dungeon_16x16_tileset Xevin itch.png" id="2_v5fjd"]
+[ext_resource type="Shader" path="res://Shaders/Lever.gdshader" id="1_xvb5u"]
+[ext_resource type="Texture2D" uid="uid://k672ceq6n5h" path="res://Assets/lever_left.png" id="2_ued8n"]
+[ext_resource type="Texture2D" uid="uid://2tyd7e36pp50" path="res://Assets/lever_right.png" id="3_07822"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pvuf5"]
 radius = 16.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_go3iu"]
-atlas = ExtResource("2_v5fjd")
-region = Rect2(0, 80, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_562pg"]
-atlas = ExtResource("2_v5fjd")
-region = Rect2(16, 80, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_blyda"]
-atlas = ExtResource("2_v5fjd")
-region = Rect2(32, 80, 16, 16)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0a0va"]
+shader = ExtResource("1_xvb5u")
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_oqrbm"]
 animations = [{
-"frames": [SubResource("AtlasTexture_go3iu"), SubResource("AtlasTexture_562pg"), SubResource("AtlasTexture_blyda")],
+"frames": [ExtResource("2_ued8n"), ExtResource("3_07822")],
 "loop": true,
 "name": &"default",
 "speed": 5.0
@@ -35,5 +28,6 @@ script = ExtResource("1_domxr")
 shape = SubResource("CircleShape2D_pvuf5")
 
 [node name="AnimatedSprite2d" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_0a0va")
 z_index = 2
 frames = SubResource("SpriteFrames_oqrbm")

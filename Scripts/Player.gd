@@ -1,6 +1,9 @@
 extends Entity
 const DASH_TIMER = 500
 const DASH_SPEED = 450
+
+@export var spawn_point = Vector2(0,0)
+
 var clicked:bool = false
 var mouse_direction:Vector2 = Vector2(0,0)
 var attack_timer = Timer.new()
@@ -21,6 +24,7 @@ func shoot():
 	get_parent().add_child(bullet)
 	bullet.check_hit()
 func _ready():
+	respawn()
 	attack_timer.connect("timeout", shoot)
 	attack_timer.wait_time = .1
 	add_child(attack_timer)
@@ -39,8 +43,11 @@ func remove_dash_fall_immunity():
 	is_flying = false
 
 func kill():
+	respawn()
+
+func respawn():
 	scale = original_scale
-	position = Vector2(8,8)*sqrt(2)/original_scale.length() #need some const on parent or something for starting pos later
+	position = spawn_point
 	rotation = 0
 	fall_next_frame = false
 	seconds_since_falling = 0

@@ -35,7 +35,6 @@ func _process(delta):
 		if $LogicContainer/TileMap.get_cell_tile_data(0, $LogicContainer/TileMap.local_to_map(entity.position)).terrain == 0:
 			if (not entity.fall_next_frame) and (not entity.is_flying):
 				entity.fall_next_frame = true
-				print("did the thing")
 			pass
 	pass
 
@@ -85,6 +84,6 @@ func _on_timer_timeout():
 		$Timer.start(1)
 	else:
 		seconds = 0
-		emit_signal("time_up")
 		process_mode = PROCESS_MODE_DISABLED
+		emit_signal("time_up")
 	pass # Replace with function body.

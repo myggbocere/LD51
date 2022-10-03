@@ -45,7 +45,7 @@ _global_script_class_icons={
 [application]
 
 config/name="LD51"
-run/main_scene="res://devstuff/dev_level/dev_level.tscn"
+run/main_scene="res://Worlds/0/1/0-1.tscn"
 config/features=PackedStringArray("4.0")
 config/icon="res://icon.svg"
 

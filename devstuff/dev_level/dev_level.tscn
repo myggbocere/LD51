@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dy6twtoaycpwx"]
+[gd_scene load_steps=5 format=3 uid="uid://dy6twtoaycpwx"]
 
 [ext_resource type="PackedScene" uid="uid://7mybfm1fcsyi" path="res://devstuff/dev_level/dev_LevelTemplate.tscn" id="1_x40o3"]
 [ext_resource type="PackedScene" uid="uid://cad2t4kakrnni" path="res://devstuff/dev_level/dev_1.tscn" id="2_7gktf"]
+[ext_resource type="TileSet" uid="uid://cye4qkqayod58" path="res://tilesets/dev_tilemap.tres" id="3_08bbc"]
 [ext_resource type="PackedScene" uid="uid://dbu32eb7w1lov" path="res://devstuff/dev_level/dev_2.tscn" id="3_gp2oq"]
 
 [node name="dev_level_alt" instance=ExtResource("1_x40o3")]
@@ -28,6 +29,36 @@ render_target_update_mode = 4
 [node name="HSplitContainer" parent="BoxContainer/SubViewportContainer/SubViewport/dev_1/for_zorder" index="0"]
 process_mode = 0
 
+[node name="dev_counter" parent="BoxContainer/SubViewportContainer/SubViewport/dev_1/for_zorder/HSplitContainer" index="0"]
+layout_mode = 3
+
+[node name="dev_counter2" parent="BoxContainer/SubViewportContainer/SubViewport/dev_1/for_zorder/HSplitContainer" index="1"]
+layout_mode = 3
+
+[node name="dev_counter3" parent="BoxContainer/SubViewportContainer/SubViewport/dev_1/for_zorder/HSplitContainer" index="2"]
+layout_mode = 3
+
+[node name="dev_counter4" parent="BoxContainer/SubViewportContainer/SubViewport/dev_1/for_zorder/HSplitContainer" index="3"]
+layout_mode = 3
+
+[node name="dev_counter5" parent="BoxContainer/SubViewportContainer/SubViewport/dev_1/for_zorder/HSplitContainer" index="4"]
+layout_mode = 3
+
+[node name="dev_counter6" parent="BoxContainer/SubViewportContainer/SubViewport/dev_1/for_zorder/HSplitContainer" index="5"]
+layout_mode = 3
+
+[node name="dev_counter7" parent="BoxContainer/SubViewportContainer/SubViewport/dev_1/for_zorder/HSplitContainer" index="6"]
+layout_mode = 3
+
+[node name="dev_counter8" parent="BoxContainer/SubViewportContainer/SubViewport/dev_1/for_zorder/HSplitContainer" index="7"]
+layout_mode = 3
+
+[node name="dev_counter9" parent="BoxContainer/SubViewportContainer/SubViewport/dev_1/for_zorder/HSplitContainer" index="8"]
+layout_mode = 3
+
+[node name="TileMap" parent="BoxContainer/SubViewportContainer/SubViewport/dev_1/LogicContainer" index="0"]
+tile_set = ExtResource("3_08bbc")
+
 [node name="Camera2d" parent="BoxContainer/SubViewportContainer/SubViewport/dev_1" index="2"]
 zoom = Vector2(0.66, 0.66)
 
@@ -52,20 +83,38 @@ render_target_update_mode = 4
 [node name="HSplitContainer" parent="BoxContainer/SubViewportContainer2/SubViewport/dev_2/for_zorder" index="0"]
 process_mode = 0
 
-[node name="Camera2d" parent="BoxContainer/SubViewportContainer2/SubViewport/dev_2" index="2"]
-zoom = Vector2(0.666, 0.666)
+[node name="dev_counter" parent="BoxContainer/SubViewportContainer2/SubViewport/dev_2/for_zorder/HSplitContainer" index="0"]
+layout_mode = 3
+
+[node name="dev_counter2" parent="BoxContainer/SubViewportContainer2/SubViewport/dev_2/for_zorder/HSplitContainer" index="1"]
+layout_mode = 3
+
+[node name="dev_counter3" parent="BoxContainer/SubViewportContainer2/SubViewport/dev_2/for_zorder/HSplitContainer" index="2"]
+layout_mode = 3
+
+[node name="dev_counter4" parent="BoxContainer/SubViewportContainer2/SubViewport/dev_2/for_zorder/HSplitContainer" index="3"]
+layout_mode = 3
+
+[node name="dev_counter5" parent="BoxContainer/SubViewportContainer2/SubViewport/dev_2/for_zorder/HSplitContainer" index="4"]
+layout_mode = 3
+
+[node name="dev_counter6" parent="BoxContainer/SubViewportContainer2/SubViewport/dev_2/for_zorder/HSplitContainer" index="5"]
+layout_mode = 3
+
+[node name="dev_counter7" parent="BoxContainer/SubViewportContainer2/SubViewport/dev_2/for_zorder/HSplitContainer" index="6"]
+layout_mode = 3
+
+[node name="dev_counter8" parent="BoxContainer/SubViewportContainer2/SubViewport/dev_2/for_zorder/HSplitContainer" index="7"]
+layout_mode = 3
+
+[node name="dev_counter9" parent="BoxContainer/SubViewportContainer2/SubViewport/dev_2/for_zorder/HSplitContainer" index="8"]
+layout_mode = 3
+
+[node name="TileMap" parent="BoxContainer/SubViewportContainer2/SubViewport/dev_2/LogicContainer" index="0"]
+tile_set = ExtResource("3_08bbc")
 
 [node name="Timer" parent="BoxContainer/SubViewportContainer2/SubViewport/dev_2" index="3"]
 autostart = false
-
-[node name="MarginContainer" parent="PanelContainer" index="0"]
-layout_mode = 3
-
-[node name="Label" parent="PanelContainer/MarginContainer" index="0"]
-layout_mode = 3
-
-[node name="TextureRect" parent="PanelContainer" index="1"]
-layout_mode = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." index="2"]
 offset_left = 896.0
