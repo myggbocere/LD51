@@ -1,6 +1,66 @@
-[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://cye4qkqayod58"]
+[gd_resource type="TileSet" load_steps=15 format=3 uid="uid://cye4qkqayod58"]
 
 [ext_resource type="Texture2D" uid="uid://baba87h40g2wg" path="res://tilesets/dev_dungeon_16x16_tileset Xevin itch.png" id="1_jj47b"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_sgcw4"]
+vertices = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+polygons = [PackedInt32Array(0, 1, 2, 3)]
+outlines = [PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_god5o"]
+vertices = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+polygons = [PackedInt32Array(0, 1, 2, 3)]
+outlines = [PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_ok26v"]
+vertices = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+polygons = [PackedInt32Array(0, 1, 2, 3)]
+outlines = [PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_rnhpc"]
+vertices = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+polygons = [PackedInt32Array(0, 1, 2, 3)]
+outlines = [PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_a6j8h"]
+vertices = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+polygons = [PackedInt32Array(0, 1, 2, 3)]
+outlines = [PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_lf44x"]
+vertices = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+polygons = [PackedInt32Array(0, 1, 2, 3)]
+outlines = [PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_1xpin"]
+vertices = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+polygons = [PackedInt32Array(0, 1, 2, 3)]
+outlines = [PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_546wc"]
+vertices = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+polygons = [PackedInt32Array(0, 1, 2, 3)]
+outlines = [PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_f3jhg"]
+vertices = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+polygons = [PackedInt32Array(0, 1, 2, 3)]
+outlines = [PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_2o8th"]
+vertices = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+polygons = [PackedInt32Array(0, 1, 2, 3)]
+outlines = [PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_acwvx"]
+vertices = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+polygons = [PackedInt32Array(0, 1, 2, 3)]
+outlines = [PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_hqd3n"]
+vertices = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+polygons = [PackedInt32Array(0, 1, 2, 3)]
+outlines = [PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b6mqw"]
 texture = ExtResource("1_jj47b")
@@ -143,6 +203,7 @@ texture = ExtResource("1_jj47b")
 0:1/0/terrains_peering_bit/top_left_corner = 0
 0:1/0/terrains_peering_bit/top_side = 0
 0:1/0/terrains_peering_bit/top_right_corner = 0
+0:1/0/navigation_layer_1/polygon = SubResource("NavigationPolygon_sgcw4")
 1:1/0 = 0
 1:1/0/terrain_set = 0
 1:1/0/terrain = 0
@@ -157,6 +218,7 @@ texture = ExtResource("1_jj47b")
 1:1/0/terrains_peering_bit/top_left_corner = 0
 1:1/0/terrains_peering_bit/top_side = 0
 1:1/0/terrains_peering_bit/top_right_corner = 0
+1:1/0/navigation_layer_1/polygon = SubResource("NavigationPolygon_ok26v")
 2:1/0 = 0
 2:1/0/terrain_set = 0
 2:1/0/terrain = 0
@@ -171,6 +233,7 @@ texture = ExtResource("1_jj47b")
 2:1/0/terrains_peering_bit/top_left_corner = 0
 2:1/0/terrains_peering_bit/top_side = 0
 2:1/0/terrains_peering_bit/top_right_corner = 0
+2:1/0/navigation_layer_1/polygon = SubResource("NavigationPolygon_a6j8h")
 3:1/0 = 0
 3:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 3:1/0/physics_layer_0/angular_velocity = 0.0
@@ -319,6 +382,7 @@ texture = ExtResource("1_jj47b")
 0:3/0/terrains_peering_bit/top_left_corner = 1
 0:3/0/terrains_peering_bit/top_side = 1
 0:3/0/terrains_peering_bit/top_right_corner = 1
+0:3/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_god5o")
 1:3/0 = 0
 1:3/0/terrain_set = 0
 1:3/0/terrain = 1
@@ -332,6 +396,7 @@ texture = ExtResource("1_jj47b")
 1:3/0/terrains_peering_bit/top_left_corner = 0
 1:3/0/terrains_peering_bit/top_side = 1
 1:3/0/terrains_peering_bit/top_right_corner = 1
+1:3/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_rnhpc")
 2:3/0 = 0
 2:3/0/terrain_set = 0
 2:3/0/terrain = 1
@@ -345,6 +410,7 @@ texture = ExtResource("1_jj47b")
 2:3/0/terrains_peering_bit/top_left_corner = 0
 2:3/0/terrains_peering_bit/top_side = 0
 2:3/0/terrains_peering_bit/top_right_corner = 0
+2:3/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_lf44x")
 3:3/0 = 0
 3:3/0/terrain_set = 0
 3:3/0/terrain = 1
@@ -358,6 +424,7 @@ texture = ExtResource("1_jj47b")
 3:3/0/terrains_peering_bit/top_left_corner = 0
 3:3/0/terrains_peering_bit/top_side = 0
 3:3/0/terrains_peering_bit/top_right_corner = 0
+3:3/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_1xpin")
 4:3/0 = 0
 4:3/0/terrain_set = 0
 4:3/0/terrain = 1
@@ -371,6 +438,7 @@ texture = ExtResource("1_jj47b")
 4:3/0/terrains_peering_bit/top_left_corner = 0
 4:3/0/terrains_peering_bit/top_side = 0
 4:3/0/terrains_peering_bit/top_right_corner = 0
+4:3/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_546wc")
 5:3/0 = 0
 5:3/0/terrain_set = 0
 5:3/0/terrain = 1
@@ -384,6 +452,7 @@ texture = ExtResource("1_jj47b")
 5:3/0/terrains_peering_bit/top_left_corner = 1
 5:3/0/terrains_peering_bit/top_side = 1
 5:3/0/terrains_peering_bit/top_right_corner = 0
+5:3/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_f3jhg")
 6:3/0 = 0
 6:3/0/terrain_set = 0
 6:3/0/terrain = 1
@@ -397,6 +466,7 @@ texture = ExtResource("1_jj47b")
 6:3/0/terrains_peering_bit/top_left_corner = 0
 6:3/0/terrains_peering_bit/top_side = 1
 6:3/0/terrains_peering_bit/top_right_corner = 1
+6:3/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_2o8th")
 7:3/0 = 0
 7:3/0/terrain_set = 0
 7:3/0/terrain = 1
@@ -410,6 +480,7 @@ texture = ExtResource("1_jj47b")
 7:3/0/terrains_peering_bit/top_left_corner = 1
 7:3/0/terrains_peering_bit/top_side = 1
 7:3/0/terrains_peering_bit/top_right_corner = 1
+7:3/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_acwvx")
 8:3/0 = 0
 8:3/0/terrain_set = 0
 8:3/0/terrain = 1
@@ -423,6 +494,7 @@ texture = ExtResource("1_jj47b")
 8:3/0/terrains_peering_bit/top_left_corner = 1
 8:3/0/terrains_peering_bit/top_side = 1
 8:3/0/terrains_peering_bit/top_right_corner = 0
+8:3/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_hqd3n")
 0:4/0 = 0
 0:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:4/0/physics_layer_0/angular_velocity = 0.0
@@ -642,4 +714,6 @@ terrain_set_1/terrain_0/color = Color(0.729412, 0, 0.0666667, 1)
 terrain_set_2/mode = 0
 terrain_set_2/terrain_0/name = "on0"
 terrain_set_2/terrain_0/color = Color(0.713726, 0, 0.286275, 1)
+navigation_layer_0/layers = 3
+navigation_layer_1/layers = 2
 sources/0 = SubResource("TileSetAtlasSource_b6mqw")
