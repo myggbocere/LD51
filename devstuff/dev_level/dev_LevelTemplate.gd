@@ -1,10 +1,13 @@
 extends Node2D
 class_name DevLevelTemplate
-# add an array to contain maps to cycle through, and helper functions to switch maps (applying color washout filter, disabling processing, etc) and get next non-complete map's color for time bar
+
+enum {POWER_NONE, POWER_GUN, POWER_SWORD, POWER_WINGS, POWER_FASTBOOTS, POWER_DASH}
+
 var maps := []
 var logic_nodes := []
 var levers := []
-var active_map = null
+var active_map := -1
+var active_power = POWER_NONE
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -17,6 +20,7 @@ func _ready():
 		maps.append(m)
 		m.connect("time_up", map_time_up.bind(maps.size()-1))
 		m.toggle_logic.connect(toggle_logic)
+		m.get_node("Player").use_power.connect(use_power)
 		for logic_node in m.get_node("LogicContainer").get_children():
 			if "logic_levels" in logic_node:
 				for i in logic_node.logic_levels:
@@ -28,6 +32,7 @@ func _ready():
 		m.process_mode = Node.PROCESS_MODE_DISABLED
 		maps.append(m)
 		m.connect("time_up", map_time_up.bind(maps.size()-1))
+		m.get_node("Player").use_power.connect(use_power)
 		for logic_node in m.get_node("LogicContainer").get_children():
 			if "logic_levels" in logic_node:
 				for i in logic_node.logic_levels:
@@ -36,6 +41,22 @@ func _ready():
 						levers[i].append(logic_node)
 	activate_map(0)
 	pass # Replace with function body.
+
+func use_power():
+	var player = maps[active_map].get_node("Player")
+	match active_power:
+		POWER_NONE:
+			player.attack()
+		POWER_GUN:
+			pass
+		POWER_SWORD:
+			pass
+		POWER_WINGS:
+			pass
+		POWER_FASTBOOTS:
+			pass
+		POWER_DASH:
+			pass
 
 func toggle_logic(level):
 	for svpcontainer in $BoxContainer.get_children():
