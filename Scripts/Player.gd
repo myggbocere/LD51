@@ -28,9 +28,15 @@ func _ready():
 	pass
 func dash():
 		var curr_time = Time.get_unix_time_from_system() * 1000
+		
 		if curr_time - prev_dash >= DASH_TIMER:
 			apply_accel(DASH_SPEED)
 			prev_dash = curr_time
+			get_tree().create_timer(DASH_SPEED/2).timeout.connect(remove_dash_fall_immunity)
+			is_flying = true
+			
+func remove_dash_fall_immunity():
+	is_flying = false
 
 func kill():
 	scale = original_scale
@@ -55,6 +61,7 @@ func _input(event):
 #		dash()
 	elif event.is_action_pressed("interact"):
 		emit_signal("interact")
+		emit_signal("change_power", DevLevelTemplate.POWER_DASH)
 		
 func use():
 	emit_signal("use_power")
