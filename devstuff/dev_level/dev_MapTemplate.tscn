@@ -1,12 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://cd0crqwxdi0ns"]
+[gd_scene load_steps=7 format=3 uid="uid://cd0crqwxdi0ns"]
 
 [ext_resource type="Script" path="res://devstuff/dev_level/dev_MapTemplate.gd" id="1_hto83"]
 [ext_resource type="Script" path="res://Scripts/LogicContainer.gd" id="3_0bnhm"]
 [ext_resource type="PackedScene" uid="uid://yjghblwlrnx5" path="res://devstuff/dev_level/dev_counter.tscn" id="4_4kgwt"]
 [ext_resource type="PackedScene" uid="uid://b0vgpyn7kafrf" path="res://Scenes/Player.tscn" id="4_ixp22"]
+[ext_resource type="PackedScene" uid="uid://cfeyd50nsr8aa" path="res://Scenes/flag.tscn" id="6_vp4i8"]
 [ext_resource type="TileSet" uid="uid://c2g5hu2usdt3t" path="res://tilesets/mapart.tres" id="20_voyjr"]
 
 [node name="dev_MapTemplate" type="Node2D"]
+process_mode = 4
 script = ExtResource("1_hto83")
 
 [node name="for_zorder" type="Node2D" parent="."]
@@ -504,4 +506,8 @@ scale = Vector2(0.25, 0.25)
 
 [node name="EntityContainer" type="Node2D" parent="."]
 
+[node name="Flag" parent="." instance=ExtResource("6_vp4i8")]
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+
+[editable path="Flag"]

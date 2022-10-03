@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bbuaudchq516u"]
+
+[ext_resource type="Script" path="res://Scripts/Powerup.gd" id="1_o3t85"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_duygh"]
+radius = 24.0
+
+[node name="Powerup" type="Node2D"]
+script = ExtResource("1_o3t85")
+
+[node name="Area2d" type="Area2D" parent="."]
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="Area2d"]
+shape = SubResource("CircleShape2D_duygh")
+
+[node name="Sprite2d" type="Sprite2D" parent="."]

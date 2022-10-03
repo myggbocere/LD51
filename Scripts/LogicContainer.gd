@@ -63,8 +63,7 @@ func _ready():
 #		map.set_visible(true)
 #		print(map.is_visible())
 		for cell in map.get_used_cells(2):
-			print(cell)
-			
+			pass
 	for cell in $TileMap.get_used_cells(3):
 		if $TileMap.get_cell_tile_data(2, cell).terrain_set > 0:
 			$TileMap.erase_cell(2, cell)
@@ -85,8 +84,6 @@ func shade_logic_tiles():
 			var newmaterial = ShaderMaterial.new()
 			newmaterial.shader = load("res://Shaders/" + str($TileMap.get_cell_atlas_coords(3, cell).y*8 + $TileMap.get_cell_atlas_coords(3, cell).x) + "Tile.gdshader")
 			$TileMap.get_cell_tile_data(2, cell).set_material(newmaterial)
-
-			print($TileMap.get_cell_tile_data(2, cell).get_material().shader.code)
 	pass
 
 func toggle(level:int):
@@ -102,7 +99,6 @@ func toggle_tilemap(level:int):
 	var pps_off = []
 	var tds_on = []
 	var tds_off = []
-	print(tilemaps)
 	for child in $TileMap.get_children():
 		for cell in child.get_used_cells(2):
 			if not is_instance_valid($TileMap.get_child(level).get_cell_tile_data(2, cell)):

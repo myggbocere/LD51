@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://cvkp7ntm0uncr"]
+
+[ext_resource type="PackedScene" uid="uid://7mybfm1fcsyi" path="res://devstuff/dev_level/dev_LevelTemplate.tscn" id="1_xiwtg"]
+[ext_resource type="PackedScene" uid="uid://bpsrpp2bwuqxu" path="res://Scenes/MapContainerTemplate.tscn" id="2_n6ppf"]
+[ext_resource type="PackedScene" uid="uid://r5n7b3xx6pi7" path="res://Worlds/0/2/0-2_0.tscn" id="3_vc8me"]
+[ext_resource type="PackedScene" uid="uid://c6mpo4lmqyv8s" path="res://Worlds/0/2/0-2_1.tscn" id="4_2jyfk"]
+
+[node name="0-2" instance=ExtResource("1_xiwtg")]
+
+[node name="MapContainerTemplate" parent="BoxContainer" index="0" instance=ExtResource("2_n6ppf")]
+offset_left = 190.0
+offset_top = 200.0
+offset_right = 574.0
+offset_bottom = 416.0
+
+[node name="0-2_0" parent="BoxContainer/MapContainerTemplate/SubViewport" index="0" instance=ExtResource("3_vc8me")]
+
+[node name="MapContainerTemplate2" parent="BoxContainer" index="1" instance=ExtResource("2_n6ppf")]
+offset_left = 578.0
+offset_top = 200.0
+offset_right = 962.0
+offset_bottom = 416.0
+
+[node name="dev_MapTemplate" parent="BoxContainer/MapContainerTemplate2/SubViewport" index="0" instance=ExtResource("4_2jyfk")]
+
+[editable path="BoxContainer/MapContainerTemplate"]
+[editable path="BoxContainer/MapContainerTemplate2"]

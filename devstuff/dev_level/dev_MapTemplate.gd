@@ -7,6 +7,7 @@ var counters := []
 var seconds:int
 signal time_up()
 signal toggle_logic(level:int)
+signal level_won()
 
 var levers_in_range := []
 var closest_lever = null
@@ -20,19 +21,22 @@ func _ready():
 		counters.append(counter)
 	seconds = 0
 	$Player.interact.connect(on_player_interact)
+	$Player.pick_up.connect(on_player_pickup)
 	for lnode in $LogicContainer.get_children():
 		if lnode.has_method("toggle_switch"):
 			lnode.get_node("Hitbox").body_entered.connect(lever_area_entered.bind(lnode))
 			lnode.get_node("Hitbox").body_exited.connect(lever_area_exited.bind(lnode))
 #	$Player.shoot.connect(generate_bullet)
+	$Flag/Area2d.body_entered.connect(flag_event)
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	var entities = $EntityContainer.get_children()
 	entities.append($Player)
+	var tm = $LogicContainer/TileMap
 	for entity in entities:
-		if $LogicContainer/TileMap.get_cell_tile_data(0, $LogicContainer/TileMap.local_to_map(entity.position)).terrain == 0:
+		if tm.get_cell_tile_data(0, tm.local_to_map(entity.position)).terrain == 0 and ((fposmod(position.x, 32) > 12 and tm.get_cell_tile_data(0, tm.get_neighbor_cell(tm.local_to_map(entity.position), TileSet.CELL_NEIGHBOR_LEFT_SIDE)).terrain != 0) or (fposmod(position.x, 32) < 20 and tm.get_cell_tile_data(0, tm.get_neighbor_cell(tm.local_to_map(entity.position), TileSet.CELL_NEIGHBOR_RIGHT_SIDE)).terrain != 0) or (fposmod(position.y, 32) > 12 and tm.get_cell_tile_data(0, tm.get_neighbor_cell(tm.local_to_map(entity.position), TileSet.CELL_NEIGHBOR_TOP_SIDE)).terrain != 0) or (fposmod(position.y, 32) < 20 and tm.get_cell_tile_data(0, tm.get_neighbor_cell(tm.local_to_map(entity.position), TileSet.CELL_NEIGHBOR_BOTTOM_SIDE)).terrain != 0)):
 			if (not entity.fall_next_frame) and (not entity.is_flying):
 				entity.fall_next_frame = true
 			pass
@@ -43,6 +47,12 @@ func activate():
 	for counter in counters:
 		counter.texture = emptycounter
 	$Timer.start(1)
+
+func flag_event(body):
+	if body == $Player:# and ($Player.position - $Flag.position).length() < 20:
+		print("won")
+		emit_signal("level_won")
+	pass
 
 func lever_area_entered(body, lever):
 	if body == $Player:
@@ -69,6 +79,15 @@ func on_player_interact():
 	if closest_lever != null:
 		emit_signal("toggle_logic", closest_lever.logic_levels[0])
 	pass
+	
+func on_player_pickup():
+	var closestpowerup = null
+	for child in $EntityContainer.get_children():
+		if child is Powerup and (closestpowerup == null or (child.position - $Player.position).length() < (closestpowerup.position - $Player.position).length()):
+			closestpowerup = child
+	if (closestpowerup.position - $Player.position).length() < 25:
+		$Player.emit_signal("change_power", closestpowerup.powerup_type)
+		closestpowerup.queue_free()
 
 func generate_bullet():
 	var bulletScene = load("res://Scenes/Bullet.tscn")

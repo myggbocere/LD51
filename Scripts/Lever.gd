@@ -9,6 +9,8 @@ signal switched()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$AnimatedSprite2d.material = ShaderMaterial.new()
+	$AnimatedSprite2d.material.shader = load("res://Shaders/" + str(logic_levels[0]) + "Lever.gdshader")
 	#call function to texture based on logic level
 	pass # Replace with function body.
 

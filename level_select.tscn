@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://ej38buj40s1v"]
+
+[node name="Level Select" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="."]
+custom_minimum_size = Vector2i(300, 200)
+offset_left = 426.0
+offset_right = 726.0
+offset_bottom = 200.0
+size_flags_horizontal = 4
+text = "Level 1"
+
+[node name="Button2" type="Button" parent="."]
+custom_minimum_size = Vector2i(300, 200)
+offset_left = 426.0
+offset_top = 204.0
+offset_right = 726.0
+offset_bottom = 404.0
+size_flags_horizontal = 4
+text = "Level 2"
+
+[node name="Button3" type="Button" parent="."]
+custom_minimum_size = Vector2i(300, 200)
+offset_left = 426.0
+offset_top = 408.0
+offset_right = 726.0
+offset_bottom = 608.0
+size_flags_horizontal = 4
+text = "Level 3"
+
+[connection signal="pressed" from="Button" to="Button" method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="Button2" method="_on_button_2_pressed"]
+[connection signal="pressed" from="Button3" to="Button3" method="_on_button_3_pressed"]

@@ -1,0 +1,53 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6648jly71e5g"]
+
+[ext_resource type="Texture2D" uid="uid://tulkflw824mn" path="res://Assets/title.png" id="1_2cvj7"]
+[ext_resource type="Script" path="res://Panel.gd" id="2_4366a"]
+
+[node name="Control" type="TextureRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 448.0
+offset_bottom = 256.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.72, 0.72)
+texture = ExtResource("1_2cvj7")
+
+[node name="Button" type="Button" parent="."]
+offset_left = 141.667
+offset_top = 565.278
+offset_right = 182.667
+offset_bottom = 596.278
+scale = Vector2(6.26869, 6.26869)
+text = "Play"
+
+[node name="Button2" type="Button" parent="."]
+offset_left = 1123.61
+offset_top = 566.667
+offset_right = 1186.61
+offset_bottom = 597.667
+scale = Vector2(6.26869, 6.26869)
+text = "Credits"
+
+[node name="Panel" type="Panel" parent="."]
+visible = false
+offset_left = 390.278
+offset_top = 43.0556
+offset_right = 430.278
+offset_bottom = 83.0556
+scale = Vector2(20, 20)
+script = ExtResource("2_4366a")
+
+[node name="Label" type="Label" parent="Panel"]
+offset_left = 1.59722
+offset_top = -1.11111
+offset_right = 96.5972
+offset_bottom = 102.889
+scale = Vector2(0.4, 0.4)
+text = "Credits:
+myggbocere
+loshy
+camel"
+
+[connection signal="pressed" from="Button2" to="Panel" method="_on_button_2_pressed"]

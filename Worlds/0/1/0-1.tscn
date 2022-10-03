@@ -14,6 +14,7 @@ offset_right = 574.0
 offset_bottom = 416.0
 
 [node name="0-1_0" parent="BoxContainer/MapContainerTemplate/SubViewport" index="0" instance=ExtResource("3_c32ww")]
+process_mode = 0
 
 [node name="MapContainerTemplate2" parent="BoxContainer" index="1" instance=ExtResource("2_y3p1q")]
 offset_left = 578.0
@@ -22,7 +23,9 @@ offset_right = 962.0
 offset_bottom = 416.0
 
 [node name="0-1_1" parent="BoxContainer/MapContainerTemplate2/SubViewport" index="0" instance=ExtResource("4_lcoje")]
+process_mode = 0
 
 [editable path="BoxContainer/MapContainerTemplate"]
 [editable path="BoxContainer/MapContainerTemplate/SubViewport/0-1_0"]
+[editable path="BoxContainer/MapContainerTemplate/SubViewport/0-1_0/Flag"]
 [editable path="BoxContainer/MapContainerTemplate2"]

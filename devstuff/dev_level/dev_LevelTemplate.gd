@@ -8,6 +8,7 @@ var logic_nodes := []
 var levers := []
 var active_map := -1
 var active_power = POWER_NONE
+signal end_level()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -17,6 +18,7 @@ func _ready():
 	var j = 0
 	for svpcontainer in $BoxContainer.get_children():
 		var m = svpcontainer.get_child(0).get_child(0)
+		m.level_won.connect(level_won)
 		m.process_mode = Node.PROCESS_MODE_DISABLED
 		m.get_node("LogicContainer/TileMap").material = ShaderMaterial.new()
 		m.get_node("LogicContainer/TileMap").material.shader = load("res://Shaders/" + str(j) + "Tile.gdshader")
@@ -26,7 +28,6 @@ func _ready():
 #			for cell in m.get_node("LogicContainer/TileMap").get_used_cells(layer):
 #				m.get_node("LogicContainer/TileMap").get_cell_tile_data(layer, cell).material = newmaterial
 #		m.get_node("LogicContainer").shade_logic_tiles()
-		m.get_node("Camera2d").scale = Vector2(0.6667, 0.6667)
 		maps.append(m)
 		m.connect("time_up", map_time_up.bind(maps.size()-1))
 		m.toggle_logic.connect(toggle_logic)
@@ -56,6 +57,10 @@ func _ready():
 #						levers[i].append(logic_node)
 	activate_map(0)
 	pass # Replace with function body.
+	
+func level_won():
+	emit_signal("end_level")
+	
 func stop_power():
 	for map in maps:
 		var player = map.get_node("Player")
