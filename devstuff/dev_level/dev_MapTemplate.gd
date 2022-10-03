@@ -28,7 +28,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	
+	$Player.shoot.connect(generate_bullet)
 	pass
 
 func activate():
@@ -62,6 +62,13 @@ func on_player_interact():
 	if closest_lever != null:
 		emit_signal("toggle_logic", closest_lever.logic_levels[0])
 	pass
+
+func generate_bullet():
+	var bulletScene = load("res://Scenes/Bullet.tscn")
+	var bullet = bulletScene.instantiate()
+	bullet.init(get_local_mouse_position() - $Player.position, $Player.position, $Player)
+	add_child(bullet)
+	bullet.check_hit()
 
 func _on_timer_timeout():
 	seconds += 1
