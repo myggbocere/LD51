@@ -21,6 +21,7 @@ func _ready():
 		m.connect("time_up", map_time_up.bind(maps.size()-1))
 		m.toggle_logic.connect(toggle_logic)
 		m.get_node("Player").use_power.connect(use_power)
+		m.get_node("Player").stop_use.connect(stop_power)
 		for logic_node in m.get_node("LogicContainer").get_children():
 			if "logic_levels" in logic_node:
 				for i in logic_node.logic_levels:
@@ -41,7 +42,21 @@ func _ready():
 						levers[i].append(logic_node)
 	activate_map(0)
 	pass # Replace with function body.
-
+func stop_power():
+	var player = maps[active_map].get_node("Player")
+	match active_power:
+		POWER_NONE:
+			player.stop_attack()
+		POWER_GUN:
+			pass
+		POWER_SWORD:
+			pass
+		POWER_WINGS:
+			pass
+		POWER_FASTBOOTS:
+			pass
+		POWER_DASH:
+			pass
 func use_power():
 	var player = maps[active_map].get_node("Player")
 	match active_power:
@@ -56,7 +71,7 @@ func use_power():
 		POWER_FASTBOOTS:
 			pass
 		POWER_DASH:
-			pass
+			player.dash()
 
 func toggle_logic(level):
 	for svpcontainer in $BoxContainer.get_children():

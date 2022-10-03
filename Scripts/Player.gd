@@ -5,19 +5,26 @@ var clicked:bool = false
 var mouse_direction:Vector2 = Vector2(0,0)
 var attack_timer = Timer.new()
 var prev_dash = 0
-signal shoot()
 signal interact()
 signal use_power()
+signal stop_use()
 signal change_power(power:int)
 # Called when the node enters the scene tree for the first time.
+func attack():
+	attack_timer.start()
+func stop_attack():
+	attack_timer.stop()
+func shoot():
+	var bulletScene = load("res://Scenes/Bullet.tscn")
+	var bullet = bulletScene.instantiate()
+	bullet.init(get_local_mouse_position() - position, position, self)
+	get_parent().add_child(bullet)
+	bullet.check_hit()
 func _ready():
-	attack_timer.connect("timeout", attack)
+	attack_timer.connect("timeout", shoot)
 	attack_timer.wait_time = .1
 	add_child(attack_timer)
 	emit_signal("change_power", DevLevelTemplate.POWER_GUN)
-	pass
-func attack():
-	emit_signal("shoot")
 	pass
 func dash():
 		var curr_time = Time.get_unix_time_from_system() * 1000
@@ -32,10 +39,9 @@ func _input(event):
 	dir.y = Input.get_axis("up", "down")
 	self.direction = dir
 	if event.is_action_pressed("press"):	
-#		attack_timer.start()
 		use()
-#	elif event.is_action_released("press"):
-#		attack_timer.stop()
+	elif event.is_action_released("press"):
+		stop()
 #	elif event.is_action_pressed("dash"):
 #		dash()
 	elif event.is_action_pressed("interact"):
@@ -43,6 +49,8 @@ func _input(event):
 		
 func use():
 	emit_signal("use_power")
+func stop():
+	emit_signal("stop_use")
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	super._process(delta)
