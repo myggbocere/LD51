@@ -24,13 +24,22 @@ func _ready():
 	attack_timer.connect("timeout", shoot)
 	attack_timer.wait_time = .1
 	add_child(attack_timer)
-	emit_signal("change_power", DevLevelTemplate.POWER_GUN)
+	
 	pass
 func dash():
 		var curr_time = Time.get_unix_time_from_system() * 1000
 		if curr_time - prev_dash >= DASH_TIMER:
 			apply_accel(DASH_SPEED)
 			prev_dash = curr_time
+
+func kill():
+	scale = original_scale
+	position = Vector2(8,8)*sqrt(2)/original_scale.length() #need some const on parent or something for starting pos later
+	rotation = 0
+	fall_next_frame = false
+	seconds_since_falling = 0
+	set_process_input(true)
+	emit_signal("change_power", DevLevelTemplate.POWER_NONE)
 
 func _input(event):
 	#print(event.as_text() + " " + str(self.position))

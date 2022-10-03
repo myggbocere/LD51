@@ -22,6 +22,7 @@ func _ready():
 		m.toggle_logic.connect(toggle_logic)
 		m.get_node("Player").use_power.connect(use_power)
 		m.get_node("Player").stop_use.connect(stop_power)
+		m.get_node("Player").change_power.connect(change_power)
 		for logic_node in m.get_node("LogicContainer").get_children():
 			if "logic_levels" in logic_node:
 				for i in logic_node.logic_levels:
@@ -34,6 +35,8 @@ func _ready():
 		maps.append(m)
 		m.connect("time_up", map_time_up.bind(maps.size()-1))
 		m.get_node("Player").use_power.connect(use_power)
+		m.get_node("Player").stop_use.connect(stop_power)
+		m.get_node("Player").change_power.connect(change_power)
 		for logic_node in m.get_node("LogicContainer").get_children():
 			if "logic_levels" in logic_node:
 				for i in logic_node.logic_levels:
@@ -43,35 +46,58 @@ func _ready():
 	activate_map(0)
 	pass # Replace with function body.
 func stop_power():
-	var player = maps[active_map].get_node("Player")
-	match active_power:
-		POWER_NONE:
-			player.stop_attack()
-		POWER_GUN:
-			pass
-		POWER_SWORD:
-			pass
-		POWER_WINGS:
-			pass
-		POWER_FASTBOOTS:
-			pass
-		POWER_DASH:
-			pass
+	for map in maps:
+		var player = map.get_node("Player")
+		match active_power:
+			POWER_NONE:
+				pass
+			POWER_GUN:
+				player.stop_attack()
+				pass
+			POWER_SWORD:
+				pass
+			POWER_WINGS:
+				pass
+			POWER_FASTBOOTS:
+				pass
+			POWER_DASH:
+				pass
 func use_power():
-	var player = maps[active_map].get_node("Player")
-	match active_power:
-		POWER_NONE:
-			player.attack()
-		POWER_GUN:
-			pass
-		POWER_SWORD:
-			pass
-		POWER_WINGS:
-			pass
-		POWER_FASTBOOTS:
-			pass
-		POWER_DASH:
-			player.dash()
+	for map in maps:
+		var player = map.get_node("Player")
+		match active_power:
+			POWER_NONE:
+				pass
+			POWER_GUN:
+				player.stop_attack()
+			POWER_SWORD:
+				pass
+			POWER_WINGS:
+				pass
+			POWER_FASTBOOTS:
+				pass
+			POWER_DASH:
+				player.dash()
+
+func change_power(power):
+	print(power)
+	for map in maps:
+		var player = map.get_node("Player")
+		player.is_flying = false
+		match power:
+			POWER_NONE:
+				pass
+			POWER_GUN:
+				pass
+			POWER_SWORD:
+				pass
+			POWER_WINGS:
+				player.is_flying = true
+			POWER_FASTBOOTS:
+				pass
+			POWER_DASH:
+				pass
+	active_power = power
 
 func toggle_logic(level):
 	for svpcontainer in $BoxContainer.get_children():
@@ -108,4 +134,5 @@ func toggle(logic_layer):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+#	print(active_power)
 	pass

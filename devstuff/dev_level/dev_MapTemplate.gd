@@ -24,11 +24,19 @@ func _ready():
 		if lnode.has_method("toggle_switch"):
 			lnode.get_node("Hitbox").body_entered.connect(lever_area_entered.bind(lnode))
 			lnode.get_node("Hitbox").body_exited.connect(lever_area_exited.bind(lnode))
+#	$Player.shoot.connect(generate_bullet)
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	$Player.shoot.connect(generate_bullet)
+	var entities = $EntityContainer.get_children()
+	entities.append($Player)
+	for entity in entities:
+		if $LogicContainer/TileMap.get_cell_tile_data(0, $LogicContainer/TileMap.local_to_map(entity.position)).terrain == 0:
+			if (not entity.fall_next_frame) and (not entity.is_flying):
+				entity.fall_next_frame = true
+				print("did the thing")
+			pass
 	pass
 
 func activate():
