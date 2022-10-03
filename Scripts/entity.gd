@@ -1,15 +1,15 @@
 class_name Entity
 
 extends CharacterBody2D
-const friction = 9
-const ACCEL_RATE = 100
+const friction = 12
+const ACCEL_RATE = 60
 var entityScene = load("res://Scenes/entity.tscn")
 var health;
 var direction:Vector2 = Vector2(0,0)
 var hittable = {}
-func apply_accel():
+func apply_accel(accel):
 	direction = direction.normalized()
-	velocity += direction * ACCEL_RATE
+	velocity += direction * accel
 func _init():
 	health = 100
 # Called when the node enters the scene tree for the first time.
@@ -28,7 +28,7 @@ func apply_friction(delta):
 	velocity *= 1.0 - (friction * delta)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	apply_accel()
+	apply_accel(ACCEL_RATE)
 	if velocity.length() > 0:
 		move_and_slide()
 		apply_friction(delta)
