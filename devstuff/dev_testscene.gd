@@ -12,6 +12,10 @@ func generate_bullet():
 	add_child(bullet)
 	bullet.check_hit()
 #	print(str(self.get_child_count()))
+func generate_enemies():
+	var mobs = load("res://Scenes/mob.tscn")
+	var mob = mobs.instantiate()
+	mob
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass

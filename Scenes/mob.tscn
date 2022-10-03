@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://d4vcf4kvn2cy"]
+
+[ext_resource type="PackedScene" uid="uid://du6pm6skr6o8t" path="res://Scenes/entity.tscn" id="1_y7y7r"]
+[ext_resource type="Script" path="res://Scripts/mob.gd" id="2_56qhp"]
+
+[node name="Mob" instance=ExtResource("1_y7y7r")]
+script = ExtResource("2_56qhp")
+
+[node name="NavigationAgent2d" type="NavigationAgent2D" parent="." index="2"]

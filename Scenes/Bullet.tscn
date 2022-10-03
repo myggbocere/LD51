@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bl1kxcloefuc3" path="res://Assets/bullet.png" id="2_1a4wy"]
 
 [node name="Bullet" type="RayCast2D"]
+collision_mask = 3
 script = ExtResource("1_6ce1s")
 
 [node name="Sprite2d" type="Sprite2D" parent="."]

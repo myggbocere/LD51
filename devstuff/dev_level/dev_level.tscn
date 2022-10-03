@@ -11,7 +11,6 @@ metadata/_edit_vertical_guides_ = []
 offset_right = 896.0
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="BoxContainer" index="0"]
-layout_mode = 2
 offset_left = 190.0
 offset_top = 200.0
 offset_right = 574.0
@@ -36,7 +35,6 @@ zoom = Vector2(0.66, 0.66)
 autostart = false
 
 [node name="SubViewportContainer2" type="SubViewportContainer" parent="BoxContainer" index="1"]
-layout_mode = 2
 offset_left = 578.0
 offset_top = 200.0
 offset_right = 962.0
@@ -54,33 +52,6 @@ render_target_update_mode = 4
 [node name="HSplitContainer" parent="BoxContainer/SubViewportContainer2/SubViewport/dev_2/for_zorder" index="0"]
 process_mode = 0
 
-[node name="dev_counter" parent="BoxContainer/SubViewportContainer2/SubViewport/dev_2/for_zorder/HSplitContainer" index="0"]
-layout_mode = 2
-
-[node name="dev_counter2" parent="BoxContainer/SubViewportContainer2/SubViewport/dev_2/for_zorder/HSplitContainer" index="1"]
-layout_mode = 2
-
-[node name="dev_counter3" parent="BoxContainer/SubViewportContainer2/SubViewport/dev_2/for_zorder/HSplitContainer" index="2"]
-layout_mode = 2
-
-[node name="dev_counter4" parent="BoxContainer/SubViewportContainer2/SubViewport/dev_2/for_zorder/HSplitContainer" index="3"]
-layout_mode = 2
-
-[node name="dev_counter5" parent="BoxContainer/SubViewportContainer2/SubViewport/dev_2/for_zorder/HSplitContainer" index="4"]
-layout_mode = 2
-
-[node name="dev_counter6" parent="BoxContainer/SubViewportContainer2/SubViewport/dev_2/for_zorder/HSplitContainer" index="5"]
-layout_mode = 2
-
-[node name="dev_counter7" parent="BoxContainer/SubViewportContainer2/SubViewport/dev_2/for_zorder/HSplitContainer" index="6"]
-layout_mode = 2
-
-[node name="dev_counter8" parent="BoxContainer/SubViewportContainer2/SubViewport/dev_2/for_zorder/HSplitContainer" index="7"]
-layout_mode = 2
-
-[node name="dev_counter9" parent="BoxContainer/SubViewportContainer2/SubViewport/dev_2/for_zorder/HSplitContainer" index="8"]
-layout_mode = 2
-
 [node name="Camera2d" parent="BoxContainer/SubViewportContainer2/SubViewport/dev_2" index="2"]
 zoom = Vector2(0.666, 0.666)
 
@@ -88,13 +59,13 @@ zoom = Vector2(0.666, 0.666)
 autostart = false
 
 [node name="MarginContainer" parent="PanelContainer" index="0"]
-layout_mode = 2
+layout_mode = 3
 
 [node name="Label" parent="PanelContainer/MarginContainer" index="0"]
-layout_mode = 2
+layout_mode = 3
 
 [node name="TextureRect" parent="PanelContainer" index="1"]
-layout_mode = 2
+layout_mode = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." index="2"]
 offset_left = 896.0

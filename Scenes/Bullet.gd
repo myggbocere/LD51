@@ -12,16 +12,20 @@ func init(dir:Vector2, origin:Vector2, shot:Entity):
 	velocity = BULLET_SPEED * dir
 
 func check_hit():
+	force_raycast_update()
+#	print(str(target_position))
 	var hit = get_collider()
 	if hit != null:
 		shooter.try_hit(hit)
-		target_position = hit.position
+		target_position = get_collision_point()
+#		print(str(target_position))
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	var next_pos:Vector2 = position + velocity * delta
+#	print(str(next_pos))
 	if (position - next_pos).length() > (position - target_position).length():
 		queue_free()
 	else:
