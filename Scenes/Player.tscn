@@ -7,6 +7,7 @@
 size = Vector2(32, 32)
 
 [node name="Player" instance=ExtResource("1_164n0")]
+z_index = 5
 script = ExtResource("2_mhv6q")
 spawn_point = Vector2(0, 0)
 

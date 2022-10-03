@@ -36,7 +36,7 @@ func dash():
 		if curr_time - prev_dash >= DASH_TIMER:
 			apply_accel(DASH_SPEED)
 			prev_dash = curr_time
-			get_tree().create_timer(DASH_SPEED/2).timeout.connect(remove_dash_fall_immunity)
+			get_tree().create_timer(DASH_SPEED/2.0).timeout.connect(remove_dash_fall_immunity)
 			is_flying = true
 			
 func remove_dash_fall_immunity():

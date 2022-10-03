@@ -1,19 +1,92 @@
 extends LogicNode
 var logic_tiles = []
+var materials = []
+var tilemaps = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	for i in range(16):
+	var i = 0
+	for newtm in $TileMap.get_children():
+		var newshader = load("res://Shaders/" + str(i) + "Tile.gdshader")
+		var newmaterial = ShaderMaterial.new()
+		newmaterial.shader = newshader
+		materials.append(newmaterial)
+		#newtm.tile_set = load("res://tilesets/logic_resources/" + str(i) + "mapart.tres")
+		newtm.material = newmaterial
+		newtm.material.shader = load("res://Shaders/" + str(i) + "Tile.gdshader")
+		newtm.z_index = 1
+		tilemaps.append(newtm)
 		logic_tiles.append([])
-	for layer in range($TileMap.get_layers_count()):
-		for cell in $TileMap.get_used_cells(layer):
-			if $TileMap.get_cell_tile_data(layer, cell).terrain_set > 0:
-				logic_tiles[$TileMap.get_cell_tile_data(layer, cell).terrain].append([cell, layer])
-		pass
+		i += 1
+#	for cell in $TileMap.get_used_cells(3):
+#		if $TileMap.get_cell_tile_data(2, cell).terrain_set > 0:
+#			logic_tiles[$TileMap.get_cell_atlas_coords(3, cell).y*8 + $TileMap.get_cell_atlas_coords(3, cell).x].append(cell)
+#
+#		pass
+#	var tiles_on = []
+#	var tiles_off = []
+#	var pps_on = []
+#	var pps_off = []
+#	var tds_on = []
+#	var tds_off = []
+#	for level in range(logic_tiles.size()):
+#		for cell in logic_tiles[level]:
+#			match $TileMap.get_cell_tile_data(2, cell).terrain_set:
+#				1:
+#					tiles_off.append(cell)
+#				3:
+#					pps_off.append(cell)
+#				5:
+#					tds_off.append(cell)
+#				2:
+#					tiles_on.append(cell)
+#				4:
+#					pps_on.append(cell)
+#				6:
+#					tds_on.append(cell)
+#		for j in tilemaps[level].tile_set.get_terrain_sets_count():
+#			print(tilemaps[level].tile_set.get_terrains_count(j))
+#		tilemaps[level].set_cells_terrain_connect(2, tiles_on, 2, 0)
+#		for tile in tiles_on:
+#			print(tile)
+#			tilemaps[level].set_cell(2, tile, $TileMap.get_cell_source_id(2, tile).get_tile_id(), Vector2i(9,0))
+#		tilemaps[level].set_cells_terrain_connect(2, tiles_off, 1, 0)
+#		for tile in tiles_off:
+#			print(tile)
+#			tilemaps[level].set_cell(2, tile, $TileMap.get_cell_source_id(2, tile), Vector2i(5,1))
+#		tilemaps[level].set_cells_terrain_connect(2, pps_on, 4, 0)
+#		tilemaps[level].set_cells_terrain_connect(2, pps_off, 3, 0)
+#		tilemaps[level].set_cells_terrain_connect(2, tds_on, 6, 0)
+#		tilemaps[level].set_cells_terrain_connect(2, tds_off, 5, 0)
+#	$TileMap.set_visible(false)
+	for map in $TileMap.get_children():
+#		map.set_visible(true)
+#		print(map.is_visible())
+		for cell in map.get_used_cells(2):
+			print(cell)
+			
+	for cell in $TileMap.get_used_cells(3):
+		if $TileMap.get_cell_tile_data(2, cell).terrain_set > 0:
+			$TileMap.erase_cell(2, cell)
+	
+	print_tree_pretty()
+	#shade_logic_tiles()
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	pass
+
+func shade_logic_tiles():
+	for arr in logic_tiles:
+		for tuple in arr:
+			var cell = tuple[0]
+			#if $TileMap.get_cell_source_id(3, cell) == 6:
+			var newmaterial = ShaderMaterial.new()
+			newmaterial.shader = load("res://Shaders/" + str($TileMap.get_cell_atlas_coords(3, cell).y*8 + $TileMap.get_cell_atlas_coords(3, cell).x) + "Tile.gdshader")
+			$TileMap.get_cell_tile_data(2, cell).set_material(newmaterial)
+
+			print($TileMap.get_cell_tile_data(2, cell).get_material().shader.code)
 	pass
 
 func toggle(level:int):
@@ -29,33 +102,32 @@ func toggle_tilemap(level:int):
 	var pps_off = []
 	var tds_on = []
 	var tds_off = []
-	for layers in range($TileMap.get_layers_count()):
-		tiles_on.append([])
-		tiles_off.append([])
-		pps_on.append([])
-		pps_off.append([])
-		tds_on.append([])
-		tds_off.append([])
-	for tuple in logic_tiles[level]:
-		match $TileMap.get_cell_tile_data(tuple[1], tuple[0]).terrain_set:
-			1:
-				tiles_off[tuple[1]].append(tuple[0])
-			3:
-				pps_off[tuple[1]].append(tuple[0])
-			5:
-				tds_off[tuple[1]].append(tuple[0])
-			2:
-				tiles_on[tuple[1]].append(tuple[0])
-			4:
-				pps_on[tuple[1]].append(tuple[0])
-			6:
-				tds_on[tuple[1]].append(tuple[0])
-		pass
-	for layer in range($TileMap.get_layers_count()):
-		$TileMap.set_cells_terrain_connect(layer, tiles_on[layer], 1, level)
-		$TileMap.set_cells_terrain_connect(layer, tiles_off[layer], 2, level)
-		$TileMap.set_cells_terrain_connect(layer, pps_on[layer], 3, level)
-		$TileMap.set_cells_terrain_connect(layer, pps_off[layer], 4, level)
-		$TileMap.set_cells_terrain_connect(layer, tds_on[layer], 5, level)
-		$TileMap.set_cells_terrain_connect(layer, tds_off[layer], 6, level)
+	print(tilemaps)
+	for child in $TileMap.get_children():
+		for cell in child.get_used_cells(2):
+			if not is_instance_valid($TileMap.get_child(level).get_cell_tile_data(2, cell)):
+				continue
+			match $TileMap.get_child(level).get_cell_tile_data(2, cell).terrain_set:
+				1:
+					tiles_off.append(cell)
+				3:
+					pps_off.append(cell)
+				5:
+					tds_off.append(cell)
+				2:
+					tiles_on.append(cell)
+				4:
+					pps_on.append(cell)
+				6:
+					tds_on.append(cell)
+		$TileMap.get_child(level).set_cells_terrain_connect(2, tiles_on, 1, 0)
+#			for tile in tiles_off:
+#				tilemaps[level].set_cell(2, tile, 5, Vector2i(9,0))
+		$TileMap.get_child(level).set_cells_terrain_connect(2, tiles_off, 2, 0)
+#			for tile in tiles_on:
+#				tilemaps[level].set_cell(2, tile, 5, Vector2i(5,1))
+		$TileMap.get_child(level).set_cells_terrain_connect(2, pps_on, 3, 0)
+		$TileMap.get_child(level).set_cells_terrain_connect(2, pps_off, 4, 0)
+		$TileMap.get_child(level).set_cells_terrain_connect(2, tds_on, 5, 0)
+		$TileMap.get_child(level).set_cells_terrain_connect(2, tds_off, 6, 0)
 	pass

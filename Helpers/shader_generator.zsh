@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 i=0
-for j in {0..5}; do
+for j in {0..12}; do
   cp "../Shaders/Tile.gdshader" "../Shaders/${j}Tile.gdshader"
 done
 while IFS= read -r line; do

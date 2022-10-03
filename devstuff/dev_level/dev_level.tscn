@@ -29,35 +29,10 @@ render_target_update_mode = 4
 [node name="HSplitContainer" parent="BoxContainer/SubViewportContainer/SubViewport/dev_1/for_zorder" index="0"]
 process_mode = 0
 
-[node name="dev_counter" parent="BoxContainer/SubViewportContainer/SubViewport/dev_1/for_zorder/HSplitContainer" index="0"]
-layout_mode = 3
-
-[node name="dev_counter2" parent="BoxContainer/SubViewportContainer/SubViewport/dev_1/for_zorder/HSplitContainer" index="1"]
-layout_mode = 3
-
-[node name="dev_counter3" parent="BoxContainer/SubViewportContainer/SubViewport/dev_1/for_zorder/HSplitContainer" index="2"]
-layout_mode = 3
-
-[node name="dev_counter4" parent="BoxContainer/SubViewportContainer/SubViewport/dev_1/for_zorder/HSplitContainer" index="3"]
-layout_mode = 3
-
-[node name="dev_counter5" parent="BoxContainer/SubViewportContainer/SubViewport/dev_1/for_zorder/HSplitContainer" index="4"]
-layout_mode = 3
-
-[node name="dev_counter6" parent="BoxContainer/SubViewportContainer/SubViewport/dev_1/for_zorder/HSplitContainer" index="5"]
-layout_mode = 3
-
-[node name="dev_counter7" parent="BoxContainer/SubViewportContainer/SubViewport/dev_1/for_zorder/HSplitContainer" index="6"]
-layout_mode = 3
-
-[node name="dev_counter8" parent="BoxContainer/SubViewportContainer/SubViewport/dev_1/for_zorder/HSplitContainer" index="7"]
-layout_mode = 3
-
-[node name="dev_counter9" parent="BoxContainer/SubViewportContainer/SubViewport/dev_1/for_zorder/HSplitContainer" index="8"]
-layout_mode = 3
-
 [node name="TileMap" parent="BoxContainer/SubViewportContainer/SubViewport/dev_1/LogicContainer" index="0"]
 tile_set = ExtResource("3_08bbc")
+layer_0/z_index = 0
+layer_2/z_index = 0
 
 [node name="Camera2d" parent="BoxContainer/SubViewportContainer/SubViewport/dev_1" index="2"]
 zoom = Vector2(0.66, 0.66)
@@ -83,35 +58,10 @@ render_target_update_mode = 4
 [node name="HSplitContainer" parent="BoxContainer/SubViewportContainer2/SubViewport/dev_2/for_zorder" index="0"]
 process_mode = 0
 
-[node name="dev_counter" parent="BoxContainer/SubViewportContainer2/SubViewport/dev_2/for_zorder/HSplitContainer" index="0"]
-layout_mode = 3
-
-[node name="dev_counter2" parent="BoxContainer/SubViewportContainer2/SubViewport/dev_2/for_zorder/HSplitContainer" index="1"]
-layout_mode = 3
-
-[node name="dev_counter3" parent="BoxContainer/SubViewportContainer2/SubViewport/dev_2/for_zorder/HSplitContainer" index="2"]
-layout_mode = 3
-
-[node name="dev_counter4" parent="BoxContainer/SubViewportContainer2/SubViewport/dev_2/for_zorder/HSplitContainer" index="3"]
-layout_mode = 3
-
-[node name="dev_counter5" parent="BoxContainer/SubViewportContainer2/SubViewport/dev_2/for_zorder/HSplitContainer" index="4"]
-layout_mode = 3
-
-[node name="dev_counter6" parent="BoxContainer/SubViewportContainer2/SubViewport/dev_2/for_zorder/HSplitContainer" index="5"]
-layout_mode = 3
-
-[node name="dev_counter7" parent="BoxContainer/SubViewportContainer2/SubViewport/dev_2/for_zorder/HSplitContainer" index="6"]
-layout_mode = 3
-
-[node name="dev_counter8" parent="BoxContainer/SubViewportContainer2/SubViewport/dev_2/for_zorder/HSplitContainer" index="7"]
-layout_mode = 3
-
-[node name="dev_counter9" parent="BoxContainer/SubViewportContainer2/SubViewport/dev_2/for_zorder/HSplitContainer" index="8"]
-layout_mode = 3
-
 [node name="TileMap" parent="BoxContainer/SubViewportContainer2/SubViewport/dev_2/LogicContainer" index="0"]
 tile_set = ExtResource("3_08bbc")
+layer_0/z_index = 0
+layer_2/z_index = 0
 
 [node name="Timer" parent="BoxContainer/SubViewportContainer2/SubViewport/dev_2" index="3"]
 autostart = false
